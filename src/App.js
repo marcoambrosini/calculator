@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { useState } from "react"
 
 import Case from "./components/Case"
 import Panel from "./components/Panel"
@@ -11,8 +11,64 @@ import EqualPad from "./components/EqualPad"
 import FunctionPad from "./components/FunctionPad"
 
 export default function App() {
-  let handleClick = function() {
-    return "hello"
+  const [value, setValue] = useState(0)
+  const [memValue, setMemValue] = useState(0)
+  const [operation, setOperation] = useState("")
+  const [isResult, setIsResult] = useState(false)
+  const [result, setResult] = useState("")
+
+  const handleClick = e => {
+    let key = e.target.innerHTML
+    console.log(isResult)
+    if (isResult) {
+      setValue(0)
+      setIsResult(false)
+    }
+    if (parseInt(key) || key === "0") {
+      let digit = parseInt(key, 10)
+      console.log(digit)
+      if (value === 0) {
+        setValue(digit)
+      } else if (value !== 0) {
+        setValue(parseInt(value.toString().concat(key), 10))
+      }
+    } else if (key === "C" || key === "CE") {
+      setValue(0)
+    } else if (key === "÷") {
+      setMemValue(value)
+      setValue(0)
+      setOperation("divide")
+    } else if (key === "×") {
+      setMemValue(value)
+      setValue(0)
+      setOperation("multiply")
+    } else if (key === "+") {
+      setMemValue(value)
+      setValue(0)
+      setOperation("add")
+    } else if (key === "-") {
+      setMemValue(value)
+      setValue(0)
+      setOperation("subtract")
+    } else if (key === ".") {
+      setValue(parseFloat(value.toString().concat(key)))
+    } else if (key === "=") {
+      if (operation === "divide") {
+        setResult(memValue / value)
+      } else if (operation === "multiply") {
+        setResult(memValue * value)
+      } else if (operation === "add") {
+        setResult(memValue + value)
+      } else if (operation === "subtract") {
+        setResult(memValue - value)
+      } else if (operation === "") {
+        return 0
+      }
+      setMemValue(0)
+      setValue(0)
+      setOperation("")
+      setIsResult(true)
+    }
   }
 
   return (
@@ -20,7 +76,7 @@ export default function App() {
       <Case>
         <Panel />
         <Display>
-          <h4>43534543543258</h4>
+          <h4>{isResult ? result : value}</h4>
         </Display>
         <Brand>
           <span className="brand">Texas instruments</span>
@@ -29,7 +85,7 @@ export default function App() {
         <Board>
           <Pads>
             <FunctionPad className="ce" onClick={handleClick}>
-              ce
+              CE
             </FunctionPad>
             <FunctionPad className="divide" onClick={handleClick}>
               ÷
@@ -47,7 +103,7 @@ export default function App() {
               9
             </Pad>
             <FunctionPad className="c" onClick={handleClick}>
-              c
+              C
             </FunctionPad>
             <Pad className="four" onClick={handleClick}>
               4

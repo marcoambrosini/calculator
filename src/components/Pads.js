@@ -12,4 +12,5 @@ export default styled.div`
     "z p e e";
 
   margin: 30px auto auto auto;
+  z-index: 10;
 `
