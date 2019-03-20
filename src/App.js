@@ -18,12 +18,13 @@ export default function App() {
   const [result, setResult] = useState("")
 
   const handleClick = e => {
-    let key = e.target.innerHTML
-    console.log(isResult)
+    let key = e.target.innerHTML //maybe change this to IDs
+    //checking that the displayed value is not a result, and if it's the case, clear it out
     if (isResult) {
       setValue(0)
       setIsResult(false)
     }
+    //if it's an integer
     if (parseInt(key) || key === "0") {
       let digit = parseInt(key, 10)
       console.log(digit)
