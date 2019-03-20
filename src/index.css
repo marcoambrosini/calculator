@@ -60,3 +60,50 @@ h4 {
 
   color: #ff0000;
 }
+
+span {
+  color: #e2c67f;
+}
+
+.brand {
+  text-align: left;
+  margin: auto 0px auto 30px;
+}
+
+.model {
+  text-align: right;
+  margin: auto 30px auto 0px;
+}
+/**
+
+.equal {
+  grid-area: e;
+}
+.n {
+  grid-area: n;
+}
+
+.ce {
+  grid-area: c;
+}
+
+.divide {
+  grid-area: d;
+}
+
+.multiply {
+  grid-area: m;
+}
+
+.subtract {
+  grid-area: s;
+}
+
+.add {
+  grid-area: a;
+}
+
+.point {
+  grid-area: p;
+}
+**/
