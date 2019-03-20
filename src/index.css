@@ -74,16 +74,12 @@ span {
   text-align: right;
   margin: auto 30px auto 0px;
 }
-/**
-
-.equal {
-  grid-area: e;
-}
-.n {
-  grid-area: n;
-}
 
 .ce {
+  grid-area: r;
+}
+
+.c {
   grid-area: c;
 }
 
@@ -106,4 +102,38 @@ span {
 .point {
   grid-area: p;
 }
-**/
+
+.equal {
+  grid-area: e;
+}
+
+.nine {
+  grid-area: u;
+}
+.eight {
+  grid-area: y;
+}
+.seven {
+  grid-area: t;
+}
+.six {
+  grid-area: j;
+}
+.five {
+  grid-area: h;
+}
+.four {
+  grid-area: g;
+}
+.three {
+  grid-area: n;
+}
+.two {
+  grid-area: b;
+}
+.one {
+  grid-area: v;
+}
+.zero {
+  grid-area: z;
+}

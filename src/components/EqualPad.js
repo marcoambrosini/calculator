@@ -1,14 +1,13 @@
 import styled from "styled-components"
 
 export default styled.button`
-  background: #b2b1a4;
+  background: #f8792d;
   box-shadow: 2px -2px 0px #686f6e;
   border-radius: 2px;
-  width: 60px;
+  width: 130px;
   height: 60px;
   border: 0px;
   margin: auto;
-  color: white;
   font-weight: 400;
   font-size: 20px;
 `

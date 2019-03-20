@@ -8,7 +8,7 @@ export default styled.button`
   height: 60px;
   border: 0px;
   margin: auto;
-  color: white;
+  color: #222e2c;
   font-weight: 400;
   font-size: 20px;
 `

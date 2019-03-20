@@ -7,10 +7,10 @@ import Brand from "./components/Brand"
 import Board from "./components/Board"
 import Pads from "./components/Pads"
 import Pad from "./components/Pad"
+import EqualPad from "./components/EqualPad"
+import FunctionPad from "./components/FunctionPad"
 
-export default App
-
-function App() {
+export default function App() {
   let handleClick = function() {
     return "hello"
   }
@@ -28,60 +28,60 @@ function App() {
         </Brand>
         <Board>
           <Pads>
-            <Pad className="ce" onClick={handleClick}>
+            <FunctionPad className="ce" onClick={handleClick}>
               ce
-            </Pad>
-            <Pad className="divide" onClick={handleClick}>
+            </FunctionPad>
+            <FunctionPad className="divide" onClick={handleClick}>
               ÷
-            </Pad>
-            <Pad className="multiply" onClick={handleClick}>
+            </FunctionPad>
+            <FunctionPad className="multiply" onClick={handleClick}>
               ×
-            </Pad>
-            <Pad className="n" onClick={handleClick}>
+            </FunctionPad>
+            <Pad className="seven" onClick={handleClick}>
               7
             </Pad>
-            <Pad className="n" onClick={handleClick}>
+            <Pad className="eight" onClick={handleClick}>
               8
             </Pad>
-            <Pad className="n" onClick={handleClick}>
+            <Pad className="nine" onClick={handleClick}>
               9
             </Pad>
-            <Pad className="c" onClick={handleClick}>
+            <FunctionPad className="c" onClick={handleClick}>
               c
-            </Pad>
-            <Pad className="n" onClick={handleClick}>
+            </FunctionPad>
+            <Pad className="four" onClick={handleClick}>
               4
             </Pad>
-            <Pad className="n" onClick={handleClick}>
+            <Pad className="five" onClick={handleClick}>
               5
             </Pad>
-            <Pad className="n" onClick={handleClick}>
+            <Pad className="six" onClick={handleClick}>
               6
             </Pad>
-            <Pad className="subtract" onClick={handleClick}>
+            <FunctionPad className="subtract" onClick={handleClick}>
               -
-            </Pad>
-            <Pad className="n" onClick={handleClick}>
+            </FunctionPad>
+            <Pad className="one" onClick={handleClick}>
               1
             </Pad>
-            <Pad className="n" onClick={handleClick}>
+            <Pad className="two" onClick={handleClick}>
               2
             </Pad>
-            <Pad className="n" onClick={handleClick}>
+            <Pad className="three" onClick={handleClick}>
               3
             </Pad>
-            <Pad className="add" onClick={handleClick}>
+            <FunctionPad className="add" onClick={handleClick}>
               +
-            </Pad>
-            <Pad className="n" onClick={handleClick}>
+            </FunctionPad>
+            <Pad className="zero" onClick={handleClick}>
               0
             </Pad>
             <Pad className="point" onClick={handleClick}>
               .
             </Pad>
-            <Pad className="equal" onClick={handleClick}>
+            <EqualPad className="equal" onClick={handleClick}>
               =
-            </Pad>
+            </EqualPad>
           </Pads>
         </Board>
       </Case>
