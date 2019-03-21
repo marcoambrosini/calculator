@@ -24,32 +24,45 @@ export default function App() {
       setValue(0)
       setIsResult(false)
     }
-    //if it's an integer
-    if (parseInt(key) || key === "0") {
-      let digit = parseInt(key, 10)
-      console.log(digit)
+    //if it's an float or if it's equal to zero
+    if (parseFloat(key) || key === "0") {
+      let digit = parseFloat(key, 10) //transform the string to an float
+      
       if (value === 0) {
         setValue(digit)
       } else if (value !== 0) {
-        setValue(parseInt(value.toString().concat(key), 10))
+        setValue(parseFloat(value.toString().concat(key), 10))//concatenate the new digit to the existing displayed value, parse it back to float 
       }
     } else if (key === "C" || key === "CE") {
       setValue(0)
     } else if (key === "÷") {
+      if (result) {
+        setMemValue(result)
+      } else {
       setMemValue(value)
+    }
       setValue(0)
       setOperation("divide")
     } else if (key === "×") {
+      if (result) {
+        setMemValue(result)
+      } else {
       setMemValue(value)
-      setValue(0)
+    }      setValue(0)
       setOperation("multiply")
     } else if (key === "+") {
+      if (result) {
+        setMemValue(result)
+      } else {
       setMemValue(value)
-      setValue(0)
+    }      setValue(0)
       setOperation("add")
     } else if (key === "-") {
+      if (result) {
+        setMemValue(result)
+      } else {
       setMemValue(value)
-      setValue(0)
+    }      setValue(0)
       setOperation("subtract")
     } else if (key === ".") {
       setValue(parseFloat(value.toString().concat(key)))
@@ -63,6 +76,8 @@ export default function App() {
       } else if (operation === "subtract") {
         setResult(memValue - value)
       } else if (operation === "") {
+        setIsResult(true)
+
         return 0
       }
       setMemValue(0)
