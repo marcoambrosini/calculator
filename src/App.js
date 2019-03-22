@@ -11,70 +11,90 @@ import EqualPad from "./components/EqualPad"
 import FunctionPad from "./components/FunctionPad"
 
 export default function App() {
-  const [value, setValue] = useState(0)
-  const [memValue, setMemValue] = useState(0)
+  const [value, setValue] = useState("0")
+  const [memValue, setMemValue] = useState("0")
   const [operation, setOperation] = useState("")
   const [isResult, setIsResult] = useState(false)
   const [result, setResult] = useState("")
+  const [isFloat, setIsFloat] = useState(false)
 
   const handleClick = e => {
     let key = e.target.innerHTML //maybe change this to IDs
     //checking that the displayed value is not a result, and if it's the case, clear it out
     if (isResult) {
-      setValue(0)
+      setValue("0")
       setIsResult(false)
     }
     //if it's an float or if it's equal to zero
     if (parseFloat(key) || key === "0") {
-      let digit = parseFloat(key, 10) //transform the string to an float
-      
-      if (value === 0) {
-        setValue(digit)
-      } else if (value !== 0) {
-        setValue(parseFloat(value.toString().concat(key), 10))//concatenate the new digit to the existing displayed value, parse it back to float 
+      if (value == 0) {
+        setValue(key)
+      } else if (value != 0) {
+        setValue(value.concat(key)) //concatenate the new digit to the existing displayed value, parse it back to float
       }
     } else if (key === "C" || key === "CE") {
-      setValue(0)
+      setValue("0")
     } else if (key === "÷") {
       if (result) {
         setMemValue(result)
       } else {
-      setMemValue(value)
-    }
+        setMemValue(value)
+      }
       setValue(0)
       setOperation("divide")
     } else if (key === "×") {
       if (result) {
         setMemValue(result)
       } else {
-      setMemValue(value)
-    }      setValue(0)
+        setMemValue(value)
+      }
+      setValue(0)
       setOperation("multiply")
     } else if (key === "+") {
       if (result) {
         setMemValue(result)
       } else {
-      setMemValue(value)
-    }      setValue(0)
+        setMemValue(value)
+      }
+      setValue(0)
       setOperation("add")
     } else if (key === "-") {
       if (result) {
         setMemValue(result)
       } else {
-      setMemValue(value)
-    }      setValue(0)
+        setMemValue(value)
+      }
+      setValue(0)
       setOperation("subtract")
     } else if (key === ".") {
-      setValue(parseFloat(value.toString().concat(key)))
+      setValue(value.concat(key))
     } else if (key === "=") {
+      let floatValue = parseFloat(value)
+      let floatMemValue = parseFloat(memValue)
+      console.log(
+        `floatValue is ${floatValue} ant it's type is ${typeof floatValue}`
+      )
+      console.log(
+        `floatMemValue is ${floatMemValue} ant it's type is ${typeof floatMemValue}`
+      )
+
+      setValue(floatValue)
+      setMemValue(floatMemValue)
+
+      console.log(`floatValue is ${value} ant it's type is ${typeof value}`)
+      console.log(
+        `floatMemValue is ${memValue} ant it's type is ${typeof memValue}`
+      )
+
       if (operation === "divide") {
-        setResult(memValue / value)
+        setResult((floatMemValue / floatValue).toString())
       } else if (operation === "multiply") {
-        setResult(memValue * value)
+        setResult((floatMemValue * floatValue).toString())
       } else if (operation === "add") {
-        setResult(memValue + value)
+        console.log("hello")
+        setResult((floatMemValue + floatValue).toString())
       } else if (operation === "subtract") {
-        setResult(memValue - value)
+        setResult((floatMemValue - floatValue).toString())
       } else if (operation === "") {
         setIsResult(true)
 
