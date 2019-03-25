@@ -11,4 +11,12 @@ export default styled.button`
   color: #222e2c;
   font-weight: 400;
   font-size: 20px;
+  cursor: pointer;
+  &:active {
+    background-color: #a5a494;
+    box-shadow: inset 2px -2px 0px #686f6e;
+  }
+  &:focus {
+    outline: none;
+  }
 `

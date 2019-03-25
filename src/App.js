@@ -16,7 +16,6 @@ export default function App() {
   const [operation, setOperation] = useState("")
   const [isResult, setIsResult] = useState(false)
   const [result, setResult] = useState("")
-  const [isFloat, setIsFloat] = useState(false)
 
   const handleClick = e => {
     let key = e.target.innerHTML //maybe change this to IDs
@@ -27,20 +26,24 @@ export default function App() {
     }
     //if it's an float or if it's equal to zero
     if (parseFloat(key) || key === "0") {
-      if (value == 0) {
+      if (value == "0") {
         setValue(key)
-      } else if (value != 0) {
+      } else if (value != "0" && value !== ".") {
         setValue(value.concat(key)) //concatenate the new digit to the existing displayed value, parse it back to float
       }
     } else if (key === "C" || key === "CE") {
       setValue("0")
+      setMemValue("0")
+      setOperation("")
+      setIsResult(false)
+      setResult("")
     } else if (key === "÷") {
       if (result) {
         setMemValue(result)
       } else {
         setMemValue(value)
       }
-      setValue(0)
+      setValue("0")
       setOperation("divide")
     } else if (key === "×") {
       if (result) {
@@ -48,7 +51,7 @@ export default function App() {
       } else {
         setMemValue(value)
       }
-      setValue(0)
+      setValue("0")
       setOperation("multiply")
     } else if (key === "+") {
       if (result) {
@@ -56,7 +59,7 @@ export default function App() {
       } else {
         setMemValue(value)
       }
-      setValue(0)
+      setValue("0")
       setOperation("add")
     } else if (key === "-") {
       if (result) {
@@ -64,9 +67,12 @@ export default function App() {
       } else {
         setMemValue(value)
       }
-      setValue(0)
+      setValue("0")
       setOperation("subtract")
     } else if (key === ".") {
+      if (value === "") {
+        setValue("0.")
+      }
       setValue(value.concat(key))
     } else if (key === "=") {
       let floatValue = parseFloat(value)
