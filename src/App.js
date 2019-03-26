@@ -12,12 +12,9 @@ import FunctionPad from "./components/FunctionPad"
 
 export default function App() {
   const [expression, setExpression] = useState("")
-  const [result, setResult] = useState("")
 
   let pushToString = e => {
-    if (result) {
-      setResult("")
-    } else if (expression === "0" && e.target.value === "0") {
+    if (expression === "0" && e.target.value === "0") {
       return 0 //preventing multiple zeros at the beginning of the expression
     } else if (expression === "0" && e.target.value !== ".") {
       return 0 //preventing a zero before anything other than a point
@@ -52,7 +49,6 @@ export default function App() {
 
   let handleClear = () => {
     setExpression("")
-    setResult("")
   }
 
   return (
@@ -60,7 +56,7 @@ export default function App() {
       <Case>
         <Panel />
         <Display id="display">
-          <h4>{result ? result : expression ? expression : "0"}</h4>
+          <h4>{expression ? expression : "0"}</h4>
         </Display>
         <Brand>
           <span className="brand">Texas instruments</span>
