@@ -15,6 +15,13 @@ export default function App() {
   const [result, setResult] = useState("")
 
   let pushToString = e => {
+    if (result) {
+      setResult("")
+    } else if (expression === "0" && e.target.value === "0") {
+      return 0 //preventing multiple zeros at the beginning of the expression
+    } else if (expression === "0" && e.target.value !== ".") {
+      return 0 //preventing a zero before anything other than a point
+    }
     setExpression(expression.concat(e.target.value))
   }
 
@@ -28,7 +35,7 @@ export default function App() {
   }
 
   let handleDecimal = e => {
-    let expressionArr = expression.split(/\+|\-|\*|\//gi)
+    let expressionArr = expression.split(/\+|-|\*|\//gi)
     let last = expressionArr[expressionArr.length - 1]
     console.log(last)
     if (last === "." || last.indexOf(".") !== -1) {
@@ -40,7 +47,7 @@ export default function App() {
 
   let handleEquals = () => {
     console.log(expression)
-    setResult(eval(expression))
+    setExpression(eval(expression).toString())
   }
 
   let handleClear = () => {
@@ -53,7 +60,7 @@ export default function App() {
       <Case>
         <Panel />
         <Display id="display">
-          <h4>{result ? result : expression}</h4>
+          <h4>{result ? result : expression ? expression : "0"}</h4>
         </Display>
         <Brand>
           <span className="brand">Texas instruments</span>
