@@ -1,5 +1,16 @@
 
-![datamath gif](./gifs/calculator.gif)
+## JS calculator
+A javascript calculator built with React.js and styled components. 
+
+![datamath gif](./assets/calculator.gif)
+
+For this project i wanted to improve my CSS skills so i looked for inspiration, found this vintage calculator and tried to replicate it just with HTML and CSS. 
+
+![datamath gif](./assets/datamath.png)
+
+Here's my figma prototype!
+
+![datamath gif](./assets/calculatorprototype.png)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
