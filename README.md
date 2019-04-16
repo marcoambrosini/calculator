@@ -6,11 +6,11 @@ A javascript calculator built with React.js and styled components.
 
 For this project i wanted to improve my CSS skills so i looked for inspiration, found this vintage calculator and tried to replicate it just with HTML and CSS. 
 
-![datamath gif](./assets/datamath.png)
+![datamath inspiration](./assets/datamath.PNG)
 
-Here's my figma prototype!
+Here's my figma design!
 
-![datamath gif](./assets/calculatorprototype.png)
+![datamath design](./assets/calculatorprototype.PNG)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
