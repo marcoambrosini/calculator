@@ -7,7 +7,7 @@
 
 For this project i wanted to improve my CSS skills so i looked for inspiration, found this vintage calculator and tried to replicate it just with HTML and CSS. 
 
-![datamath inspiration](./assets/datamath.PNG)
+![datamath inspiration](./assets/datamath2.PNG)
 
  Here's my figma design!
 
